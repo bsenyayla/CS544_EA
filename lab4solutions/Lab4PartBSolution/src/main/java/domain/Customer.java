@@ -14,7 +14,9 @@ public class Customer {
     @GeneratedValue
     private long id;
     
-    @OneToMany (cascade={CascadeType.PERSIST},  mappedBy="customer")
+    @OneToMany (
+			cascade={CascadeType.PERSIST},
+			mappedBy="customer")
     private Collection<Order> theOrders=new ArrayList<Order>();
 
     @ManyToOne(cascade={CascadeType.PERSIST})

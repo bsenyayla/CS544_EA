@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-
 public class AccountDTO {
 	private long accountnumber;
 	private double balance;

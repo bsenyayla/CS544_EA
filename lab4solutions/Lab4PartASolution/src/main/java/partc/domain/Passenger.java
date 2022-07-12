@@ -9,6 +9,7 @@ public class Passenger {
 	@GeneratedValue
 	private long id;
 	private String name;
+
 	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "passenger")
     @OrderColumn(name = "flightsequence")

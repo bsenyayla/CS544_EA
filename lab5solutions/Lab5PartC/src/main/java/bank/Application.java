@@ -39,7 +39,7 @@ public class Application implements CommandLineRunner {
 		accountService.transferFunds(4253892, 1263862, 100, "payment of invoice 10232");
 		// show balances
 
-		Collection<AccountDTO> accountlist = accountService.getAllAccounts();
+	/*	Collection<AccountDTO> accountlist = accountService.getAllAccounts();
 		CustomerDTO customer = null;
 		for (AccountDTO account : accountlist) {
 			customer = account.getCustomer();
@@ -54,5 +54,7 @@ public class Application implements CommandLineRunner {
 			System.out.println("----------------------------------------" + "----------------------------------------");
 			System.out.printf("%30s%30s%20.2f\n\n", "", "Current Balance:", account.getBalance());
 		}
+		/
+	 */
 	}
 }

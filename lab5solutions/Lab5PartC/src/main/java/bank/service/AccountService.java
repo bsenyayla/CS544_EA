@@ -8,6 +8,7 @@ import bank.logging.ILogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class AccountService implements IAccountService {
 	private ILogger logger;
 
 
-
+@Transactional
 	public AccountDTO createAccount(long accountNumber, String customerName) {
 		Account account = new Account(accountNumber);
 		Customer customer = new Customer(customerName);
@@ -35,7 +36,7 @@ public class AccountService implements IAccountService {
 		return AccountAdapter.getAccountDTOFromAccount(account);
 	}
 
-
+@Transactional
 	public void deposit(long accountNumber, double amount) {
 		Account account = accountDAO.findById(accountNumber).get();
 		account.deposit(amount);
@@ -67,7 +68,7 @@ public class AccountService implements IAccountService {
 				+ " , amount= " + amount);
 	}
 
-
+@Transactional
 	public void depositEuros(long accountNumber, double amount) {
 		Account account = accountDAO.findById(accountNumber).get();
 		double amountDollars = currencyConverter.euroToDollars(amount);
@@ -90,6 +91,7 @@ public class AccountService implements IAccountService {
 				+ accountNumber + " , amount= " + amount);
 	}
 
+	@Transactional
 	public void transferFunds(long fromAccountNumber, long toAccountNumber,
 							  double amount, String description) {
 		Account fromAccount = accountDAO.findById(fromAccountNumber).get();

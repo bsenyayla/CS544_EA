@@ -8,7 +8,8 @@ public class Account {
 	@Id  
 	long accountnumber;
 
-	@OneToMany (cascade={CascadeType.ALL}, fetch= FetchType.EAGER)
+	@OneToMany (cascade={CascadeType.ALL}
+			    ,fetch= FetchType.EAGER) //
 	@JoinColumn(name="accountnr")
 	Collection<AccountEntry> entryList = new ArrayList<AccountEntry>();
 

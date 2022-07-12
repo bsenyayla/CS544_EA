@@ -5,8 +5,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
 	public static void main(String[] args) {
+
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"springconfig.xml");
+
 		ICustomerService customerService = context.getBean("customerService",
 				ICustomerService.class);
 

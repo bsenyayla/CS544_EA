@@ -12,7 +12,10 @@ public class Department {
 	@GeneratedValue
 	private long id;
 	private String name;
-	@OneToMany(mappedBy = "department", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+
+	@OneToMany(mappedBy = "department",
+			cascade = CascadeType.PERSIST,
+			fetch = FetchType.EAGER)
 	private Collection<Employee> employeelist = new ArrayList<Employee>();
 
 	public Department() {
