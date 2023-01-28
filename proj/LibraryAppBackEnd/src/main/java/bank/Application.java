@@ -1,24 +1,19 @@
 package bank;
 
-import bank.domain.Account;
-import bank.domain.AccountEntry;
-import bank.domain.Customer;
-import bank.service.AccountDTO;
-import bank.service.AccountEntryDTO;
-import bank.service.CustomerDTO;
-import bank.service.IAccountService;
+import bank.service.AppDriverService;
+import bank.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Collection;
-
 @SpringBootApplication
 public class Application implements CommandLineRunner {
+	@Autowired
+	AppDriverService appDriver;
 
 	@Autowired
-	private IAccountService accountService;
+	CustomerService customerBS;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -26,9 +21,10 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		appDriver.initialApp();
+		System.out.println("f");
 
-
-
+		/*
 		// create 2 accounts;
 		accountService.createAccount(1263862, "Frank Brown");
 		accountService.createAccount(4253892, "John Doe");
@@ -42,7 +38,7 @@ public class Application implements CommandLineRunner {
 		accountService.transferFunds(4253892, 1263862, 100, "payment of invoice 10232");
 		// show balances
 
-	/*	Collection<AccountDTO> accountlist = accountService.getAllAccounts();
+		Collection<AccountDTO> accountlist = accountService.getAllAccounts();
 		CustomerDTO customer = null;
 		for (AccountDTO account : accountlist) {
 			customer = account.getCustomer();
